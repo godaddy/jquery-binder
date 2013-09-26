@@ -75,6 +75,7 @@ function tagAndCheckin() {
   console.log("Run the following commands");
   console.log([
     'git add -A'
+    ,'git add dist/*.js'
     ,'git commit -m "committing tag v' + cfg.version + '"'
     ,'git push origin master'
     ,'git tag v' + cfg.version
