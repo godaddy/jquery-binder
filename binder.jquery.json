@@ -1,0 +1,30 @@
+{
+  "name": "jquery-binder",
+  "version": "0.8.2",
+  "author": {
+    "name": "GoDaddy.com",
+    "url": "http://github.com/godaddy"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/godaddy/jquery-binder/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/godaddy/jquery-binder",
+  "description": "jQuery extension to track elements bound to a given event.",
+  "keywords": [
+    "jquery",
+    "events"
+  ],
+  "bugs": "https://github.com/godaddy/jquery-binder/issues",
+  "dependencies": [],
+  "title": "jQuery Binder",
+  "maintainers": [
+    {
+      "name": "Michael J. Ryan",
+      "email": "mxryan@godaddy.com",
+      "url": "http://github.com/tracker1"
+    }
+  ]
+}
