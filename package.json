@@ -23,7 +23,7 @@
     "test": "test"
   },
   "scripts": {
-    "install": "node ./node_modules/gulp/bin/gulp install"
+    "build": "node ./node_modules/gulp/bin/gulp build"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
   "devDependencies": {
     "gulp": "~0.2.0",
     "gulp-uglify": "0.0.4",
-    "event-stream": "~3.0.16"
+    "event-stream": "~3.0.16",
+    "gulp-concat": "0.0.1"
   }
 }
