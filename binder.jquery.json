@@ -1,6 +1,6 @@
 {
-  "name": "jquery-binder",
-  "version": "0.8.8",
+  "name": "binder",
+  "version": "0.8.9",
   "author": {
     "name": "GoDaddy.com",
     "url": "http://github.com/godaddy"
@@ -18,7 +18,7 @@
     "events"
   ],
   "bugs": "https://github.com/godaddy/jquery-binder/issues",
-  "dependencies": [],
+  "dependencies": {},
   "title": "jQuery Binder",
   "maintainers": [
     {

@@ -55,9 +55,10 @@ function updateJQueryPluginFile() {
   var text = fs.readFileSync('./binder.jquery.json',{encoding:'utf8'});
   var options = JSON.parse(text);
   options = extend({}, options,{
-    name:cfg.name
-    ,title:cfg.title
-    ,author:cfg.author
+    //name:cfg.name
+    //,
+    title:cfg.title
+    //,author:cfg.author
     ,version:cfg.version
     ,homepage:cfg.homepage
     ,description:cfg.description
