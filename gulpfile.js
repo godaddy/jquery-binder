@@ -73,22 +73,11 @@ function tagAndCheckin() {
   console.log("TAG: v" + cfg.version);
 
   console.log("Run the following commands");
-
-  async.series([
-    //doRun('git rm dist/*'),
-    doRun('git add -A'),
-    doRun('git tag v' + cfg.version),
-    doRun("git commit -m 'commiting tag v" + cfg.version + "'"),
-    doRun('git push origin --tags')
-  ],function(err,values){
-    console.log("Committed tag v" + cfg.version);
-  });
-}
-
-function doRun(path) {
-  return function(next) {
-    cp.exec(path,function(){
-      next
-    });
-  }
+  console.log([
+    'git add -A'
+    ,'git commit -m "committing tag v' + cfg.version + '"'
+    ,'git push origin master'
+    ,'git tag v' + cfg.version
+    ,'git push origin --tags'
+  ].join('\n'));
 }
