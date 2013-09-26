@@ -1,0 +1,44 @@
+{
+  "name": "jquery-binder",
+  "title": "jQuery Binder",
+  "version": "0.8.0",
+  "description": "jQuery extension to track elements bound to a given event.",
+  "license": "MIT",
+  "homepage": "https://github.com/godaddy/jquery-binder",
+  "author": {
+    "name": "GoDaddy.com",
+    "url": "http://github.com/godaddy"
+  },
+  "contributors": [
+    {
+      "name": "Michael J. Ryan",
+      "email": "mxryan@godaddy.com",
+      "url": "http://github.com/tracker1"
+    }
+  ],
+  "main": "./src/jquery.binder.js",
+  "directories": {
+    "src": "src",
+    "dist": "dist",
+    "test": "test"
+  },
+  "scripts": {
+    "install": "node ./node_modules/gulp/bin/gulp install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/godaddy/jquery-binder.git"
+  },
+  "keywords": [
+    "jquery",
+    "events"
+  ],
+  "bugs": {
+    "url": "https://github.com/godaddy/jquery-binder/issues"
+  },
+  "devDependencies": {
+    "gulp": "~0.2.0",
+    "gulp-uglify": "0.0.4",
+    "event-stream": "~3.0.16"
+  }
+}
