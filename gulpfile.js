@@ -6,6 +6,7 @@ var path = require('path');
 var fs = require('fs');
 var extend = require("xtend");
 var cp = require('child_process');
+var async = require('async');
 
 var cfg = require('./package.json');
 
@@ -26,6 +27,8 @@ function bumpVersion() {
 }
 
 function cleanDistFiles() {
+  if (!fs.existsSync('./dist')) fs.mkdirSync('./dist');
+
   //clear dist directory
   var filesToClean = fs.readdirSync('./dist','*.js');
   filesToClean.forEach(function(path){
@@ -69,13 +72,23 @@ function updateJQueryPluginFile() {
 function tagAndCheckin() {
   console.log("TAG: v" + cfg.version);
 
-  cp.exec('git rm dist/*', function(){
-    cp.exec('git add -A', function(){
-      cp.exec('git tag v' + cfg.version, function(){
-        cp.exec('git push origin --tags', function(){
-          console.log("tag pushed");
-        })
-      });
-    });
+  console.log("Run the following commands");
+
+  async.series([
+    //doRun('git rm dist/*'),
+    doRun('git add -A'),
+    doRun('git tag v' + cfg.version),
+    doRun("git commit -m 'commiting tag v" + cfg.version + "'"),
+    doRun('git push origin --tags')
+  ],function(err,values){
+    console.log("Committed tag v" + cfg.version);
   });
+}
+
+function doRun(path) {
+  return function(next) {
+    cp.exec(path,function(){
+      next
+    });
+  }
 }

@@ -1,7 +1,7 @@
 {
   "name": "jquery-binder",
   "title": "jQuery Binder",
-  "version": "0.8.2",
+  "version": "0.8.4",
   "description": "jQuery extension to track elements bound to a given event.",
   "license": "MIT",
   "homepage": "https://github.com/godaddy/jquery-binder",
@@ -41,6 +41,7 @@
     "gulp-uglify": "0.0.4",
     "event-stream": "~3.0.16",
     "gulp-concat": "0.0.1",
-    "xtend": "~2.1.1"
+    "xtend": "~2.1.1",
+    "async": "~0.2.9"
   }
 }
