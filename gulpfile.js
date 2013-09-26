@@ -3,11 +3,16 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var es = require('event-stream');
 var path = require('path');
+var fs = require('fs');
 
 var cfg = require('./package.json');
 
 gulp.task('build', function(){
-  console.log("running minify: ", path.resolve('./'));
+  //clear dist directory
+  var filesToClean = fs.readdirSync('./dist','*.js');
+  filesToClean.forEach(function(path){
+    fs.unlinkSync('./dist/' + path);
+  });
 
   //unminified - concat
   gulp.src('./src/**.js')
