@@ -1,7 +1,7 @@
 {
   "name": "jquery-binder",
   "title": "jQuery Binder",
-  "version": "0.8.10",
+  "version": "0.8.12",
   "description": "jQuery extension to track elements bound to a given event.",
   "license": "MIT",
   "homepage": "https://github.com/godaddy/jquery-binder",

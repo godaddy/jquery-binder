@@ -1,27 +1,42 @@
-/*  jQuery.binder
- Extends jQuery to include methods for tracking elements with are subscribed to events
-
- Warning:
- this extension overrides the default bind/unbind behavior, it should be completely
- compatible with the 1.9.x and 2.0.x releases, this may change in the future
- if bind/unbind functionality changes.
-
- This should only be used when absolutely needed, and likely only for custom events
- in another extension.
-
- Example:
- //start watching for an event's binding
- $.binder.watch("someEvent");
-
- //bind elements to the event
- $("#elem").bind("someEvent", function(evt){
- //event handler
- });
-
- //get those elements listening for the event
- $.binder.get("someEvent"); //returns jquery object with "#elem" included
- */
-(function($){
+/*! jQuery.binder - Copyright (c) 2013 GoDaddy.com - MIT License
+ *
+ * Extends jQuery to include methods for tracking elements with are subscribed to events
+ *
+ * Warning:
+ * this extension overrides the default bind/unbind behavior, it should be completely
+ * compatible with the 1.9.x and 2.0.x releases, this may change in the future
+ * if bind/unbind functionality changes.
+ *
+ * This should only be used when absolutely needed, and likely only for custom events
+ * in another extension.
+ *
+ * Example:
+ * //start watching for an event's binding
+ * $.binder.watch("someEvent");
+ *
+ * //bind elements to the event
+ * $("#elem").bind("someEvent", function(evt){
+ * //event handler
+ * });
+ *
+ * //get those elements listening for the event
+ * $.binder.get("someEvent"); //returns jquery object with "#elem" included
+ *
+ **/
+(function (factory) {
+  //Universal Module Definition (UMD)
+  //https://github.com/umdjs/umd/blob/master/jqueryPluginCommonjs.js
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // Node/CommonJS
+    factory(require('jquery'));
+  } else {
+    // Browser globals
+    factory(this.jQuery);
+  }
+}(function($){
 
   //extend base jQuery object (global methods)
   $.binder = {
@@ -138,5 +153,5 @@
     }
   }
 
-}(jQuery));
+}));
 /*end jQuery.binder*/
