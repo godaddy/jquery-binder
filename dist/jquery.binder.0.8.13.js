@@ -38,18 +38,21 @@
   }
 }(function($){
 
+  var watchers = {}; //events that are being tracked
+  var bind = $.fn.bind; //original bind method
+  var unbind = $.fn.unbind; //original unbind method
+
+  //update bind/unbind methods
+  $.fn.bind = newBind; //new bind method
+  $.fn.unbind = newUnbind; //new unbind method
+
   //extend base jQuery object (global methods)
   $.binder = {
     watch: trackEventHandler
     ,get: getElementsForHandler
   }
 
-  var watchers = {}; //events that are being tracked
-  var bind = $.fn.bind; //original bind method
-  var unbind = $.fn.unbind; //original unbind method
-
-  $.fn.bind = newBind; //new bind method
-  $.fn.unbind = newUnbind; //new unbind method
+  return $; //return jQuery object
 
   //adds an item to the event tracking list
   function trackEventHandler(event) {
