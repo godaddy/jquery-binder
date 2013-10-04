@@ -7,14 +7,14 @@ var fs = require('fs');
 var extend = require("xtend");
 var cp = require('child_process');
 var async = require('async');
+var header = require('gulp-header');
 
 var cfg = require('./package.json');
 
 gulp.task('build', function(){
   bumpVersion();
   cleanDistFiles();
-  createOutputFile();
-  createMinifiedOutputFile();
+  createOutputFiles();
   updateJQueryPluginFile();
   tagAndCheckin();
 });
@@ -36,18 +36,17 @@ function cleanDistFiles() {
   });
 }
 
-function createOutputFile() {
+function createOutputFiles() {
+  var options = extend({}, cfg);
+
   //unminified - concat
   gulp.src('./src/**.js')
     .pipe(concat({fileName:"jquery.binder." + cfg.version + ".js", separator:'\r\n\r\n'}))
-    .pipe(gulp.dest('./dist'));
-}
-
-function createMinifiedOutputFile() {
-  //minified
-  gulp.src('./src/*.js')
-    .pipe(uglify())
+    .pipe(header(extend(options, {file:'./headers/full-header.js'})))
+    .pipe(gulp.dest('./dist'))
     .pipe(concat({fileName:"jquery.binder." + cfg.version + ".min.js", separator:'\r\n\r\n'}))
+    .pipe(uglify())
+    .pipe(header(extend(options, {file:'./headers/min-header.js'})))
     .pipe(gulp.dest('./dist'));
 }
 
